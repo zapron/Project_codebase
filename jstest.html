@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Test</title>
+<?php 
+
+function dio()
+{
+
+	$row = 1;
+	$mycsvfile = array(); //define the main array.
+	if (($handle = fopen("file.csv", "r")) !== FALSE) 
+	{
+		echo "<table>";
+		while (($data = fgetcsv($handle, filesize('file.csv'))) !== FALSE) 
+		{
+			echo "<tr>";
+			$num = count($data);
+			for ($c=0; $c < $num; $c++) 
+			{
+				echo "<td>";
+				echo $data[$c]."  ";
+				echo "</td>";
+			}
+			echo "</tr>";
+			//$mycsvfile[] = $data; //add the row to the main array.
+		}
+		echo "</table>";
+		fclose($handle);
+	}
+
+}	
+	
+?>
+</head>
+
+
+<style type="text/css">
+	table{
+		font-size: 20px;
+		
+		color:blue;
+		padding: 10px;
+	}
+
+	td{
+border: 1px solid red;
+background: yellow;
+	}
+
+	td{
+
+	}
+</style>
+<script type="text/javascript">
+	function jsfunc(){
+		document.getElementById("p2").innerHTML="Preprocedure Checklist Comprehensive";
+	}function refresh() {
+		location.reload();
+	}
+	function alertmsg()
+	{
+		alert("This is only for demo backend development in progress");
+	}
+	//	function alert()
+//	{
+	//	window.alert('This is only for demo backend development in progress');
+	//}
+
+
+
+</script>
+
+<style type="text/css">
+	p{
+		font-size: 30px;
+		color: red;
+		font-family: sans-serif;
+	}
+
+	button{
+		font-size: 20px;
+		color: green;
+		background-color: yellow;
+		padding: 10px;
+	}
+</style>
+
+
+
+<body>
+
+    <p id="p1">the PowerForm name is:</p>
+	<p id="p2">......................</p>
+<form action="<?=$_SERVER['PHP_SELF'];?>" method="POST">
+	<button type="button" id="b1" onclick="jsfunc()">PF NAME</button>
+	<button type="button" id="b2" onclick="alertmsg()">SECTIONS</button>
+	<button type="button" id="b3" onclick="alertmsg()">DTA</button>
+	<button type="button" id="b4" onclick="refresh()">REFRESH</button>
+	<button type="button" id="b5">DIO</button>
+
+</form>
+</body>
+</html>
