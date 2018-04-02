@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX DEMO</title>
+</head>
+<body>
+	<button id="btn1">Please Click Here</button>
+
+
+
+
+	<script type="text/javascript">
+		
+		document.getElementById('btn1').addEventListener('click',loadtext);//creating an ebent listener
+
+		funtion loadtext(){
+           //create XHR Object
+             var xhr=new XMLHttpRequest();
+           //OPEN - type, url/file, async
+             console.log(xhr);
+		}
+	</script>
+</body>
+</html>
